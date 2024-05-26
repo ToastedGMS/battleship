@@ -11,6 +11,16 @@ class Ship{
         return '+1 hit'
     }
 
+    // calculates whether a ship is considered sunk based on its length and the number of hits it has received.
+
+    isSunk(){
+        if (this.hits >= this.length){
+            this.sunk = true
+            return 'true'
+        }
+        else { return 'false'}
+    }
+
 }
 
 module.exports = Ship
