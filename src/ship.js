@@ -1,11 +1,10 @@
 class Ship{
     constructor(type){
         this.length = this.shipLength(type)
-        // this.class = this.shipClass(type)
+        this.class = this.shipClass(type)
         this.hits = 0
         this.sunk = false
     }
-
 
     // determine length of ship based on it's type
     shipLength(type){
@@ -26,6 +25,22 @@ class Ship{
             this.class = 'Destroyer';
         }
     }
+
+    // determine class of ship based on it's type
+    shipClass(type){
+        if (type === 1){
+            return this.class = 'Carrier';
+        } else if (type === 2){   
+            return this.class = 'Battleship';
+        } else if (type === 3){
+            return this.class = 'Cruiser';
+        } else if (type === 4){
+            return this.class = 'Submarine';
+        } else if (type === 5){
+            return this.class = 'Destroyer';
+        }
+    }
+
     // increases the number of ‘hits’ in your ship.
     hit(){
         this.hits+=1
