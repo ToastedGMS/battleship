@@ -31,3 +31,10 @@ test('correctly determines ship length', () => {
 
     expect(testSubject.length).toBe(3)
 })
+
+// test shipClass function
+test('correctly determines ship class', () => {
+    let testSubject = new Ship(3)
+
+    expect(testSubject.class).toBe('Cruiser')
+})
