@@ -10,19 +10,14 @@ class Ship{
     shipLength(type){
         if (type === 1){
             return this.length = 5
-            this.class = 'Carrier';
         } else if (type === 2){
             return this.length = 4   
-            this.class = 'Battleship';
         } else if (type === 3){
             return this.length = 3
-            this.class = 'Cruiser';
         } else if (type === 4){
             return this.length = 3
-            this.class = 'Submarine';
         } else if (type === 5){
             return this.length = 2
-            this.class = 'Destroyer';
         }
     }
 
