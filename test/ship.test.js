@@ -10,11 +10,12 @@ test('increase hit value of ship', () => {
 
 //test 'isSunk' function
 test('correctly determines if ship is sunk', () => {
-    let testSubject1 = new Ship
+    let testSubject1 = new Ship(5)
+    testSubject1.hit();
     testSubject1.hit();
 
+
     let testSubject2 = new Ship
-    testSubject2.length = 2
     testSubject2.hit();
 
     expect(testSubject1.isSunk()).toBe('true')
@@ -22,4 +23,11 @@ test('correctly determines if ship is sunk', () => {
 
     expect(testSubject2.isSunk()).toBe('false')
     expect(testSubject2.sunk).toBe(false)
+})
+
+// test shipLength function
+test('correctly determines ship length', () => {
+    let testSubject = new Ship(3)
+
+    expect(testSubject.length).toBe(3)
 })
