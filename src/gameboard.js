@@ -18,7 +18,8 @@ class Gameboard{
     }
 
     placeShip(ship, coordinates = []){
-        //takes a ship object and places it in given coordinates
+        //takes a ship object and places a string representing it in given coordinates
+        //it's expected that the number of coordinates matches the total length of the given ship
         const shipClass = ship.class
         coordinates.forEach((element) => {
             let char1 = element.charAt(0)
