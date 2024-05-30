@@ -27,5 +27,20 @@ class Gameboard{
             this[char1][char2] = ship
         })
     }
+
+    //if given coordinates match a ship, call it's 'hit' function.
+    //if not place 'miss' in those coordinates 
+    receiveAttack(coordinates){
+        let char1 = coordinates.charAt(0)
+        let char2 = coordinates.charAt(1)
+
+        if ( isNaN(this[char1][char2]) ){
+            this[char1][char2].hit()
+        } 
+        else { 
+            this[char1][char2] = 'miss'
+        }
+    }
 }
+
 module.exports = Gameboard
