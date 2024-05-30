@@ -39,7 +39,7 @@ class Ship{
     // increases the number of ‘hits’ in your ship.
     hit(){
         this.hits+=1
-        return '+1 hit'
+        this.isSunk()
     }
 
     // calculates whether a ship is considered sunk based on its length and the number of hits it has received.
@@ -47,9 +47,7 @@ class Ship{
     isSunk(){
         if (this.hits >= this.length){
             this.sunk = true
-            return 'true'
         }
-        else { return 'false'}
     }
 
 }
