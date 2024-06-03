@@ -42,15 +42,14 @@
         box-shadow: 5px 5px 5px red;
     }
 
-    .wrapper {
-        display: flex;
-        justify-content: space-around;
-    }
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+}
     .grid-container {
         display: grid;
-        grid-template-columns: repeat(10, 50px);
-        grid-gap: 5px;
-        padding: 10px;
+        grid-template-columns: repeat(10, 3rem);
+        gap: .1rem;
     }
     .grid-item {
         display: flex;
@@ -61,8 +60,6 @@
         background-color: #f0f0f0;
         border: 1px solid #ccc;
     }
-
     .grid-item:hover {
         background-color: #5a5050;
-
     }
