@@ -13,6 +13,8 @@ const masterbtn = document.querySelector('#masterbtn')
 const wrapper = document.querySelector('.wrapper')
 
 function createGrid(board) {
+    let counter = 1
+
     const container = document.createElement('div');
     container.className = 'grid-container';
 
@@ -20,13 +22,20 @@ function createGrid(board) {
 
     rows.forEach(row => {
         board[row].forEach(cell => {
+
             const cellElement = document.createElement('div');
             cellElement.className = 'grid-item';
+            
+            cellElement.setAttribute('coordinate',`${row}${counter}`)
+            counter++
+            if (counter > 10){ counter = 1}
+
             if ( !isNaN(cell) == false){
                 cellElement.textContent = cell.class;
             } else {
                 cellElement.textContent = cell;
             }
+
             container.appendChild(cellElement);
         });
     });
@@ -35,4 +44,3 @@ function createGrid(board) {
 }
 
 masterbtn.addEventListener('click', () => {createGrid(player1.gameboard), createGrid(player2.gameboard)})
-
