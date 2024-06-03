@@ -36,3 +36,33 @@
         display: flex;
         align-items: center;
     }
+
+    .next:hover{
+        cursor: pointer;
+        box-shadow: 5px 5px 5px red;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: space-around;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(10, 50px);
+        grid-gap: 5px;
+        padding: 10px;
+    }
+    .grid-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.5em;
+        height: 2.5em;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+    }
+
+    .grid-item:hover {
+        background-color: #5a5050;
+
+    }
