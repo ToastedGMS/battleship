@@ -15,6 +15,7 @@ class Gameboard{
         this.h = [1,2,3,4,5,6,7,8,9,10];
         this.i = [1,2,3,4,5,6,7,8,9,10];
         this.j = [1,2,3,4,5,6,7,8,9,10];
+        this.gameOver = 0
     }
 
     placeShip(ship, coordinates = []){
@@ -36,9 +37,18 @@ class Gameboard{
 
         if ( isNaN(this[char1][char2]) ){
             this[char1][char2].hit()
+            this.gameOver+= 1
+            this.allShipsSunk()
         } 
         else { 
             this[char1][char2] = 'miss'
+        }
+    }
+
+    allShipsSunk(){
+        if (this.gameOver === 17){
+            alert('Gameover')
+            return 'Gameover'
         }
     }
 }
