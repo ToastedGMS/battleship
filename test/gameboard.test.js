@@ -20,3 +20,9 @@ test('correctly determines if given coordinates hit a ship or not', () => {
     expect(ship1.hits).not.toBe(0)
     expect(gameboard.a[2]).toBe('miss')
 })
+
+test('correctly alerts if all ships are sunk', () => {
+    const gameboard = new Gameboard
+    gameboard.gameOver = 17
+    expect(gameboard.allShipsSunk()).toBe('Gameover')
+})
