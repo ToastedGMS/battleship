@@ -24,7 +24,7 @@ class Gameboard{
         //it's expected that the number of coordinates matches the total length of the given ship
         coordinates.forEach((element) => {
             let char1 = element.charAt(0)
-            let char2 = element.charAt(1)
+            let char2 = element.charAt(1)-1
 
             this[char1][char2] = ship
         })
@@ -34,7 +34,7 @@ class Gameboard{
     //if not place 'miss' in those coordinates 
     receiveAttack(coordinates){
         let char1 = coordinates.charAt(0)
-        let char2 = coordinates.charAt(1)
+        let char2 = coordinates.charAt(1)-1
 
         if ( isNaN(this[char1][char2]) ){
             this[char1][char2].hit()
