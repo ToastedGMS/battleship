@@ -18,6 +18,8 @@ function createGrid(board) {
             counter++
             if (counter > 10){ counter = 1}
 
+            cellElement.setAttribute('source', board.player.name)
+
             if ( !isNaN(cell) == false){
                 cellElement.textContent = cell.class;
             } else {

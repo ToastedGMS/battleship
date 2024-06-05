@@ -16,6 +16,7 @@ class Gameboard{
         this.i = [1,2,3,4,5,6,7,8,9,10];
         this.j = [1,2,3,4,5,6,7,8,9,10];
         this.gameOver = 0
+        this.player = null;
     }
 
     placeShip(ship, coordinates = []){
@@ -50,6 +51,10 @@ class Gameboard{
             alert('Gameover')
             return 'Gameover'
         }
+    }
+
+    setPlayer(player) {
+        this.player = player;
     }
 }
 
