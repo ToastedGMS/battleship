@@ -24,7 +24,7 @@ class Gameboard{
         //it's expected that the number of coordinates matches the total length of the given ship
         coordinates.forEach((element) => {
             let char1 = element.charAt(0)
-            let char2 = element.charAt(1)-1
+            let char2 = element.charAt(1)
 
             this[char1][char2] = ship
         })
@@ -34,9 +34,9 @@ class Gameboard{
     //if not place 'miss' in those coordinates 
     receiveAttack(coordinates){
         let char1 = coordinates.charAt(0)
-        let char2 = coordinates.charAt(1)-1
+        let char2 = coordinates.charAt(1)
 
-        if ( isNaN(this[char1][char2]) ){
+        if (isNaN(this[char1][char2])){
             this[char1][char2].hit()
             this.gameOver+= 1
             this.allShipsSunk()
@@ -46,6 +46,7 @@ class Gameboard{
         }
     }
 
+    //alerts game over if all ships are sunk
     allShipsSunk(){
         if (this.gameOver === 17){
             alert('Gameover')
@@ -53,6 +54,7 @@ class Gameboard{
         }
     }
 
+    //allows the gameboard to know what player it was created from
     setPlayer(player) {
         this.player = player;
     }
