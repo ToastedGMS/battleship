@@ -1,25 +1,22 @@
 const wrapper = document.querySelector('.wrapper')
 
 function createGrid(board) {
-    let counter = 1
-
+// iterartes through gameboard's coordinate arrays and creates small cell divs for each one
     const container = document.createElement('div');
     container.className = 'grid-container';
 
     const rows = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
 
     rows.forEach(row => {
-        board[row].forEach(cell => {
-
+        board[row].forEach((cell, index) => {
+//for each cell in each row, create adiv
             const cellElement = document.createElement('div');
             cellElement.className = 'grid-item';
-            
-            cellElement.setAttribute('coordinate',`${row}${counter}`)
-            counter++
-            if (counter > 10){ counter = 1}
-
+            // set it's coordinate and the board it came from as attributes
+            cellElement.setAttribute('coordinate',`${row}${index}`)
             cellElement.setAttribute('source', board.player.name)
 
+            //sets it's inner text to it's ship type if it is one
             if ( !isNaN(cell) == false){
                 cellElement.textContent = cell.class;
             } else {
