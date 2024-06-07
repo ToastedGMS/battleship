@@ -35,30 +35,30 @@ function addBoardListeners(arg){
     Array.from(cells).forEach(cell => {
         cell.addEventListener('click', cell.fn = function fn(e) {
             //...and calls the event handler functions
-            handleAttack()
-            isCellHit()
+            handleAttack(e)
+            isCellHit(cell, arg)
         })
     });
 }
 
-function handleAttack(){
+function handleAttack(val){
 //sends attack to correct gameboard based on current round
     if (currentRound === 'Player 1') {
-        player2.gameboard.receiveAttack(`${e.target.getAttribute('coordinate')}`);
+        player2.gameboard.receiveAttack(`${val.target.getAttribute('coordinate')}`);
     } else {
-        player1.gameboard.receiveAttack(`${e.target.getAttribute('coordinate')}`);
+        player1.gameboard.receiveAttack(`${val.target.getAttribute('coordinate')}`);
     }
 }
 
-function isCellHit(){
+function isCellHit(val, val2){
 //checks if cell contains a ship...
-    if (!isNaN(cell.innerText)){
+    if (!isNaN(val.innerText)){
         //... if not, sets it as a miss and calls next function
-        cell.innerText = 'miss'
-        removeListeners(arg)
+        val.innerText = 'miss'
+        removeListeners(val2)
     } else {
         //... else, sets it as hit, and player's round continues
-        cell.innerText = 'hit'
+        val.innerText = 'hit'
     }
 }
 
