@@ -1,46 +1,30 @@
 const Player = require("./player");
 const Ship = require("./ship");
+const createGrid = require("./renderBoard");
+const { newRound } = require("./manageDom");
 
-const player1 = new Player
-const plr1Ship1 = new Ship(5)
-player1.gameboard.placeShip(plr1Ship1, ['c3','d3'])
+// temporary hardcoded ship coordinates
+const player1 = new Player('Player 1')
+player1.gameboard.placeShip(new Ship(1),['a0', 'b0', 'c0', 'd0', 'e0'])
+player1.gameboard.placeShip(new Ship(2),['f8', 'g8', 'h8', 'i8'])
+player1.gameboard.placeShip(new Ship(3),['g3', 'g4', 'g5'])
+player1.gameboard.placeShip(new Ship(4),['a7', 'a8', 'a9'])
+player1.gameboard.placeShip(new Ship(5),['j1', 'j2'])
 
-const player2 = new Player
-const plr2Ship1 = new Ship(5)
-player2.gameboard.placeShip(plr2Ship1, ['h8','h9'])
+const player2 = new Player('Player 2')
+player2.gameboard.placeShip(new Ship(1),['a1', 'b1', 'c1', 'd1', 'e1'])
+player2.gameboard.placeShip(new Ship(2),['f8', 'g8', 'h8', 'i8'])
+player2.gameboard.placeShip(new Ship(3),['g3', 'g4', 'g5'])
+player2.gameboard.placeShip(new Ship(4),['a7', 'a8', 'a9'])
+player2.gameboard.placeShip(new Ship(5),['j1', 'j2'])
 
+// select and add event listener to button that creates gameboards
 const masterbtn = document.querySelector('#masterbtn')
-const wrapper = document.querySelector('.wrapper')
 
-function createGrid(board) {
-    let counter = 1
+masterbtn.addEventListener('click', masterbtn.fn = function fn(){
+    createGrid(player1.gameboard), createGrid(player2.gameboard) //render the boards
+    masterbtn.removeEventListener('click', masterbtn.fn)
+    newRound() // start game
+})
 
-    const container = document.createElement('div');
-    container.className = 'grid-container';
-
-    const rows = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
-
-    rows.forEach(row => {
-        board[row].forEach(cell => {
-
-            const cellElement = document.createElement('div');
-            cellElement.className = 'grid-item';
-            
-            cellElement.setAttribute('coordinate',`${row}${counter}`)
-            counter++
-            if (counter > 10){ counter = 1}
-
-            if ( !isNaN(cell) == false){
-                cellElement.textContent = cell.class;
-            } else {
-                cellElement.textContent = cell;
-            }
-
-            container.appendChild(cellElement);
-        });
-    });
-
-    wrapper.appendChild(container);
-}
-
-masterbtn.addEventListener('click', () => {createGrid(player1.gameboard), createGrid(player2.gameboard)})
+export {player1, player2}
