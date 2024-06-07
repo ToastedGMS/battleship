@@ -1,5 +1,3 @@
-const Ship = require("./ship");
-
 class Gameboard{
     constructor(){ 
         //arrays representing the 2d gameboard
