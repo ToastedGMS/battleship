@@ -33,11 +33,13 @@ function addBoardListeners(arg){
     const cells = document.querySelectorAll(arg)
 
     Array.from(cells).forEach(cell => {
-        cell.addEventListener('click', cell.fn = function fn(e) {
+        if (cell.getAttribute('isHit') === 'false'){
+            cell.addEventListener('click', cell.fn = function fn(e) {
+
             //...and calls the event handler functions
             handleAttack(e)
-            isCellHit(cell, arg)
-        })
+            isCellHit(cell, arg, e)
+        })}
     });
 }
 
@@ -50,15 +52,14 @@ function handleAttack(val){
     }
 }
 
-function isCellHit(val, val2){
-//checks if cell contains a ship...
-    if (!isNaN(val.innerText)){
-        //... if not, sets it as a miss and calls next function
-        val.innerText = 'miss'
-        removeListeners(val2)
+function isCellHit(val, val2, val3){
+    if (val.getAttribute('isShip') == 'true'){
+        val3.target.style.backgroundColor = 'rgb(9, 39, 65)'
+        val.removeEventListener('click', val.fn) //makes sure that each cell can only be hit once
+        val.setAttribute('isHit', 'true')
     } else {
-        //... else, sets it as hit, and player's round continues
-        val.innerText = 'hit'
+        val3.target.style.backgroundColor = '#8a0606'
+        removeListeners(val2)
     }
 }
 
@@ -74,4 +75,3 @@ function removeListeners(arg){
 }
 
 export {newRound}
-

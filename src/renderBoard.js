@@ -15,12 +15,13 @@ function createGrid(board) {
             // set it's coordinate and the board it came from as attributes
             cellElement.setAttribute('coordinate',`${row}${index}`)
             cellElement.setAttribute('source', board.player.name)
+            cellElement.setAttribute('isHit', 'false')
 
             //sets it's inner text to it's ship type if it is one
             if ( !isNaN(cell) == false){
-                cellElement.textContent = cell.class;
+                cellElement.setAttribute('isShip', 'true');
             } else {
-                cellElement.textContent = cell;
+                cellElement.setAttribute('isShip', 'false'); 
             }
 
             container.appendChild(cellElement);
